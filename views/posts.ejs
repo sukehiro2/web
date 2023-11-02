@@ -1,0 +1,44 @@
+<%- include("header") -%>
+
+<body>
+    <section id="blog">
+
+        <div class="blog-heading">
+            <span>My Recent Posts</span>
+            <h3>My Blog</h3>
+        </div>
+
+        <div class="blog-container">
+            
+            <% for(var i = 0; i < posts.length; i++) { %>
+                <div class="blog-box">
+                    <div class="blog-text">
+                        <em><%= posts[i].date %></em>
+                        <a href="#" class="blog-title"><%= posts[i].title %></a>
+                        <p class="content"><%= posts[i].content %></p>
+                        <button onclick="readMore(this)">Read More</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        
+<% for (var i = 0; i < posts.length; i++) { %>
+    <div class="blog-box">
+        <!-- Post content display -->
+    </div>
+<% } %>
+
+<!-- "Add New Post" button -->
+<button onclick="showNewPostForm()">Add New Post</button>
+
+<!-- Form for adding a new post (initially hidden) -->
+<div id="newPostForm" style="display: none;">
+    <form action="/" method="post">
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="content" placeholder="Content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+    </section>
+    <%- include("footer") -%>
